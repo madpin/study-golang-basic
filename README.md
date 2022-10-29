@@ -77,3 +77,29 @@ You can also create a launch.json, for running with F5 from any file
 }
   ```
 </details>
+
+## Let's add some extensions/modules!
+> [source](https://go.dev/doc/tutorial/getting-started#call)
+
+Search the next nice package in [pkg.go.dev](pkg.go.dev)
+In our case, "quotes"
+
+Changes to `hello.go`
+```go
+package main
+
+import (
+	"fmt"
+	"rsc.io/quote"
+)
+
+func main() {
+	fmt.Println("Hello, World!")
+	fmt.Println(quote.Go())
+}
+
+```
+Add new module requirements and sums.
+```bash
+go mod tidy
+```
