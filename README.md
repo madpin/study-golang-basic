@@ -103,3 +103,37 @@ Add new module requirements and sums.
 ```bash
 go mod tidy
 ```
+
+## Creating a new Module
+
+Part of this study continues in [MadMod ](https://github.com/madpin/madmod)
+I've created the module there, and will use it here.
+
+We'll change the `hello.go` file, new content:
+```go
+package main
+
+import (
+	"fmt"
+
+	"github.com/madpin/madmod"
+	"rsc.io/quote"
+)
+
+func main() {
+	fmt.Println("Hello, World!")
+	fmt.Println(quote.Opt())
+	fmt.Println(madmod.Hello("test"))
+}
+```
+
+We'll also need to change the target of our module, to get from local:
+```bash
+go mod edit -replace github.com/madpin/madmod=../madmod
+```
+
+Now, the last sync before the run:
+```bash
+go mod tidy
+```
+> Once ran, you can edit the module code, that it's auto update for the hello.
